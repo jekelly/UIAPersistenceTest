@@ -1,0 +1,23 @@
+﻿<Window x:Class="UIAPersistenceTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIAPersistenceTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <UniformGrid Rows="4">
+        <TextBlock Text="{Binding AutomationPropertyCreatedCount, RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}}" FontSize="36"/>
+        <local:PeerCountControl />
+        <Button Content="Context Menu Button">
+            <Button.ContextMenu>
+                <ContextMenu>
+                    <local:PeerCountControl/>
+                </ContextMenu>
+            </Button.ContextMenu>
+        </Button>
+        <Button Content="Send WM_GETOBJECT" Click="Button_Click" />
+        <Button Content="Add new controls on timer" Click="Button_Click_1"/>
+        <StackPanel x:Name="holder" Orientation="Horizontal"/>
+    </UniformGrid>
+</Window>
